@@ -1,13 +1,19 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-porcelain: #fdf8f1;
+  --color-ivory: #f9f3ea;
+  --color-latte: #efe4d3;
+  --color-sand: #d4c0a3;
+  --color-warm-gray: #6c6963;
+  --color-deep-olive: #3c4a3e;
+  --color-deep-slate: #1f2530;
+  --color-gold: #c4964c;
+  --color-deep-gold: #a16e2f;
+  --color-charcoal: #2e2c2a;
+  --color-soft-white: #fffdfa;
+  --color-cream: #f3ece3;
+  --color-night: #f9f3ea;
+  --color-ink: #2a2b32;
+  color-scheme: light;
 }
 
 html,
@@ -17,11 +23,15 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-charcoal);
+  background: radial-gradient(circle at 20% 0%, rgba(196, 150, 76, 0.2), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(61, 74, 62, 0.12), transparent 45%),
+    var(--color-porcelain);
+  font-family: var(--font-body), "Manrope", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 * {
@@ -35,8 +45,7 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+::selection {
+  background: rgba(196, 150, 76, 0.35);
+  color: var(--color-deep-slate);
 }
