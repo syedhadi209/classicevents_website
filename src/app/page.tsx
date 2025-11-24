@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import styles from "./page.module.css";
 
 const services = [
@@ -38,7 +39,7 @@ const reviews = [
   },
   {
     quote:
-      "Every guest felt seen. The concierge texts, the chef’s table, the lighting—luxury lived in every touchpoint.",
+      "Every guest felt seen. The concierge texts, the chef's table, the lighting—luxury lived in every touchpoint.",
     author: "Lucia R. — Manhattan",
   },
   {
@@ -48,27 +49,37 @@ const reviews = [
   },
 ];
 
+// Instagram posts - Replace with real API data
+// To connect Instagram: Use Instagram Basic Display API or a service like Instafeed.js
+const instagramPosts = [
+  { id: "1", image: "/api/placeholder/400/400", caption: "Timeless elegance", link: "#" },
+  { id: "2", image: "/api/placeholder/400/400", caption: "Dream wedding", link: "#" },
+  { id: "3", image: "/api/placeholder/400/400", caption: "Beautiful moments", link: "#" },
+  { id: "4", image: "/api/placeholder/400/400", caption: "Luxury celebration", link: "#" },
+  { id: "5", image: "/api/placeholder/400/400", caption: "Perfect day", link: "#" },
+  { id: "6", image: "/api/placeholder/400/400", caption: "Memories made", link: "#" },
+];
+
 export default function Home() {
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.revealVisible);
+            entry.target.setAttribute("data-reveal-state", "visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.18, rootMargin: "0px 0px -5%" }
     );
 
     elements.forEach((element) => {
-      element.classList.add(styles.reveal);
-      const delay = element.dataset.revealDelay;
-      if (delay) {
-        element.style.setProperty("--reveal-delay", delay);
-      }
+      const delay = element.dataset.revealDelay ?? "0ms";
+      element.style.setProperty("--reveal-delay", delay);
       observer.observe(element);
     });
 
@@ -78,7 +89,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.shell}>
-        <nav className={styles.nav} data-reveal>
+        <nav className={styles.nav} data-reveal data-reveal-direction="down">
           <div className={styles.brand}>
             <span>Since 2009</span>
             <h1>Classic Events</h1>
@@ -94,7 +105,12 @@ export default function Home() {
         </nav>
 
         <header className={styles.hero}>
-          <div className={styles.heroContent} data-reveal data-reveal-delay="0ms">
+          <div
+            className={styles.heroContent}
+            data-reveal
+            data-reveal-direction="up"
+            data-reveal-delay="0ms"
+          >
             <p className={styles.eyebrow}>Luxury Event Atelier</p>
             <h2 className={styles.heroTitle}>
               Modern celebrations curated with classic taste.
@@ -113,25 +129,42 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </header>
 
+        <section className={styles.highlightsSection}>
           <div className={styles.heroHighlights}>
-            <div className={styles.highlightCard} data-reveal data-reveal-delay="80ms">
+            <div
+              className={styles.highlightCard}
+              data-reveal
+              data-reveal-direction="up"
+              data-reveal-delay="80ms"
+            >
               <strong>300+</strong>
               <p>Signature celebrations delivered across 12 countries.</p>
             </div>
-            <div className={styles.highlightCard} data-reveal data-reveal-delay="160ms">
+            <div
+              className={styles.highlightCard}
+              data-reveal
+              data-reveal-direction="up"
+              data-reveal-delay="160ms"
+            >
               <strong>94%</strong>
               <p>Clients referred by family & private members clubs.</p>
             </div>
-            <div className={styles.highlightCard} data-reveal data-reveal-delay="240ms">
+            <div
+              className={styles.highlightCard}
+              data-reveal
+              data-reveal-direction="up"
+              data-reveal-delay="240ms"
+            >
               <strong>24/7</strong>
               <p>Concierge planning team for white-glove communication.</p>
             </div>
           </div>
-        </header>
+        </section>
 
         <section id="services" className={styles.section}>
-          <div className={styles.sectionHeader} data-reveal>
+          <div className={styles.sectionHeader} data-reveal data-reveal-direction="up">
             <p className={styles.sectionEyebrow}>Services</p>
             <h3 className={styles.sectionTitle}>Every chapter deserves a distinct experience.</h3>
             <p className={styles.sectionDescription}>
@@ -145,6 +178,7 @@ export default function Home() {
                 key={service.title}
                 className={styles.serviceCard}
                 data-reveal
+                data-reveal-direction={index % 2 === 0 ? "left" : "right"}
                 data-reveal-delay={`${index * 120}ms`}
               >
                 <span className={styles.serviceTag}>Bespoke</span>
@@ -161,7 +195,7 @@ export default function Home() {
         </section>
 
         <section id="reviews" className={styles.section}>
-          <div className={styles.sectionHeader} data-reveal>
+          <div className={styles.sectionHeader} data-reveal data-reveal-direction="up">
             <p className={styles.sectionEyebrow}>Reviews</p>
             <h3 className={styles.sectionTitle}>Whispers from delighted hosts.</h3>
             <p className={styles.sectionDescription}>
@@ -175,6 +209,7 @@ export default function Home() {
                 key={review.author}
                 className={styles.reviewCard}
                 data-reveal
+                data-reveal-direction={index % 2 === 0 ? "right" : "left"}
                 data-reveal-delay={`${index * 120}ms`}
               >
                 <p className={styles.reviewQuote}>&ldquo;{review.quote}&rdquo;</p>
@@ -184,8 +219,54 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="instagram" className={styles.section}>
+          <div className={styles.sectionHeader} data-reveal data-reveal-direction="up">
+            <p className={styles.sectionEyebrow}>On Instagram</p>
+            <h3 className={styles.sectionTitle}>Follow our latest celebrations.</h3>
+            <p className={styles.sectionDescription}>
+              See behind the scenes of our most recent events and get inspired for your own special day.
+            </p>
+          </div>
+          <div className={styles.instagramGrid}>
+            {instagramPosts.map((post, index) => (
+              <a
+                key={post.id}
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.instagramPost}
+                data-reveal
+                data-reveal-delay={`${index * 80}ms`}
+              >
+                <div className={styles.instagramImage}>
+                  <Image
+                    src={`https://picsum.photos/400/400?random=${post.id}`}
+                    alt={post.caption}
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div className={styles.instagramOverlay}>
+                    <span className={styles.instagramIcon}>📷</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className={styles.instagramCta} data-reveal data-reveal-delay="480ms">
+            <a
+              href="https://instagram.com/classicevents"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.secondaryBtn}
+            >
+              Follow @classicevents
+            </a>
+          </div>
+        </section>
+
         <section id="contact" className={styles.section}>
-          <div className={styles.sectionHeader} data-reveal>
+          <div className={styles.sectionHeader} data-reveal data-reveal-direction="up">
             <p className={styles.sectionEyebrow}>Contact</p>
             <h3 className={styles.sectionTitle}>Begin your Classic chapter.</h3>
             <p className={styles.sectionDescription}>
@@ -194,13 +275,18 @@ export default function Home() {
           </p>
         </div>
           <div className={styles.contact}>
-            <div className={styles.contactDetails} data-reveal>
+            <div className={styles.contactDetails} data-reveal data-reveal-direction="left">
               <p>Concierge line: +1 (646) 555-0199</p>
               <p>Email: hello@classicevents.studio</p>
               <p>Studios in New York, Dubai, and London. Available worldwide.</p>
               <p>Office hours: Monday–Saturday, 9a–7p (client services 24/7).</p>
             </div>
-            <form className={styles.contactForm} data-reveal data-reveal-delay="120ms">
+            <form
+              className={styles.contactForm}
+              data-reveal
+              data-reveal-direction="right"
+              data-reveal-delay="120ms"
+            >
               <label htmlFor="name">Full name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required />
 
@@ -229,7 +315,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className={styles.footer} data-reveal>
+        <footer className={styles.footer} data-reveal data-reveal-direction="up">
           <p>© {new Date().getFullYear()} Classic Events. All rights reserved.</p>
           <p>Luxury event management • concierge planning • immersive design</p>
         </footer>

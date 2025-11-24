@@ -1,18 +1,18 @@
 :root {
-  --color-porcelain: #fdf8f1;
-  --color-ivory: #f9f3ea;
-  --color-latte: #efe4d3;
-  --color-sand: #d4c0a3;
+  --color-sage-green: #d4d9c8;
+  --color-light-sage: #e8ede3;
+  --color-beige: #f5f0e8;
+  --color-warm-beige: #ede8df;
+  --color-tan: #d9c9b0;
+  --color-warm-brown: #8b7355;
+  --color-deep-brown: #6b5d47;
   --color-warm-gray: #6c6963;
-  --color-deep-olive: #3c4a3e;
-  --color-deep-slate: #1f2530;
-  --color-gold: #c4964c;
-  --color-deep-gold: #a16e2f;
-  --color-charcoal: #2e2c2a;
-  --color-soft-white: #fffdfa;
-  --color-cream: #f3ece3;
-  --color-night: #f9f3ea;
-  --color-ink: #2a2b32;
+  --color-charcoal: #3a3630;
+  --color-gold: #c9a961;
+  --color-deep-gold: #a6894a;
+  --color-coral: #e89d7a;
+  --color-soft-white: #fefcf9;
+  --color-cream: #faf7f2;
   color-scheme: light;
 }
 
@@ -24,9 +24,7 @@ body {
 
 body {
   color: var(--color-charcoal);
-  background: radial-gradient(circle at 20% 0%, rgba(196, 150, 76, 0.2), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(61, 74, 62, 0.12), transparent 45%),
-    var(--color-porcelain);
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-beige) 50%, var(--color-warm-beige) 100%);
   font-family: var(--font-body), "Manrope", system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,6 +44,6 @@ a {
 }
 
 ::selection {
-  background: rgba(196, 150, 76, 0.35);
-  color: var(--color-deep-slate);
+  background: rgba(201, 169, 97, 0.3);
+  color: var(--color-charcoal);
 }
