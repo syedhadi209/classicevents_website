@@ -406,7 +406,7 @@ export default function Home() {
                           src={image.src}
                           alt={image.alt}
                           fill
-                          sizes="(max-width: 768px) 50vw, 40vw"
+                          sizes="(max-width: 768px) 50vw, 33vw"
                           style={{ objectFit: "cover" }}
                         />
                       </div>
