@@ -1,20 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Header from "./components/Header/Header";
-import Banner from "./components/Banner/Banner";
-import Hero from "./components/Hero/Hero";
-import Highlights from "./components/Highlights/Highlights";
-import About from "./components/About/About";
-import Services from "./components/Services/Services";
-import Events from "./components/Events/Events";
-import Reviews from "./components/Reviews/Reviews";
-import Instagram from "./components/Instagram/Instagram";
-import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
-import PlanEvent from "./components/PlanEvent/PlanEvent";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Banner from "../components/Banner/Banner";
+import Hero from "../components/Hero/Hero";
+import Highlights from "../components/Highlights/Highlights";
+import About from "../components/About/About";
+import Services from "../components/Services/Services";
+import Events from "../components/Events/Events";
+import Reviews from "../components/Reviews/Reviews";
+import Instagram from "../components/Instagram/Instagram";
+import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
+import PlanEvent from "../components/PlanEvent/PlanEvent";
+import Contact from "../components/Contact/Contact";
+import Footer from "../components/Footer/Footer";
 import styles from "./page.module.css";
 
 export default function Home() {
