@@ -5,8 +5,11 @@ import styles from "./About.module.css";
 export default function About() {
   return (
     <section id="about" className={styles.aboutSection}>
-      <div className={styles.aboutContent} data-reveal data-reveal-direction="up">
-        <p className={styles.aboutTagline}>We listen, we plan, we deliver</p>
+      <div
+        className={styles.aboutContent}
+        data-reveal
+        data-reveal-direction="up"
+      >
         <h2 className={styles.aboutTitle}>About Us</h2>
         <div className={styles.aboutText}>
           <p>
@@ -28,8 +31,12 @@ export default function About() {
             manage everything behind the scenes.
           </p>
         </div>
+        <div className={styles.aboutTaglineWrapper}>
+          <div className={styles.decorativeLine}></div>
+          <p className={styles.aboutTagline}>We listen, we plan, we deliver</p>
+          <div className={styles.decorativeLine}></div>
+        </div>
       </div>
     </section>
   );
 }
-

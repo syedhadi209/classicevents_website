@@ -67,7 +67,7 @@ export default function Services() {
         data-reveal
         data-reveal-direction="up"
       >
-        <p className={styles.sectionEyebrow}>Services</p>
+        <p className={styles.sectionEyebrow}>Our Services</p>
         <h3 className={styles.sectionTitle}>
           Every chapter deserves a distinct experience.
         </h3>
