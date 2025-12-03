@@ -1,0 +1,91 @@
+.page {
+  min-height: 100vh;
+  background: #f5e5d5;
+  padding: 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw 90px;
+}
+
+.nav {
+  padding: 32px 0;
+  margin-bottom: 40px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(58, 54, 48, 0.15);
+  color: var(--color-charcoal);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(58, 54, 48, 0.08);
+}
+
+.backButton:hover {
+  background: white;
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateX(-4px);
+  box-shadow: 0 6px 16px rgba(58, 54, 48, 0.12);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-family: var(--font-display), "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-charcoal);
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-warm-gray);
+  margin: 0;
+}
+
+.gallerySection {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comingSoon {
+  font-size: 1.5rem;
+  color: var(--color-warm-gray);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 5vw 60px;
+  }
+
+  .nav {
+    padding: 24px 0;
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+}
+

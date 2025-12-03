@@ -1,0 +1,90 @@
+.planEventSection {
+  padding: 100px 0;
+  margin: 0 -5vw;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 169, 97, 0.08) 0%,
+    rgba(232, 157, 122, 0.08) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.planEventSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.3), transparent);
+}
+
+.planEventSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.3), transparent);
+}
+
+.planEventContent {
+  max-width: 1100px;
+  padding: 0 8vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.planEventTitle {
+  font-family: var(--font-display), "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--color-charcoal);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+  align-self: center;
+}
+
+.planEventTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-coral));
+  border-radius: 2px;
+}
+
+.planEventText {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--color-charcoal);
+  margin: 0;
+  max-width: 1000px;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .planEventSection {
+    padding: 60px 0;
+  }
+
+  .planEventTitle {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .planEventText {
+    font-size: 1.05rem;
+  }
+}
+

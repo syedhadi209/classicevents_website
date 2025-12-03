@@ -24,7 +24,7 @@ body {
 
 body {
   color: var(--color-charcoal);
-  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-beige) 50%, var(--color-warm-beige) 100%);
+  background: #F5E5D5;
   font-family: var(--font-body), "Manrope", system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;

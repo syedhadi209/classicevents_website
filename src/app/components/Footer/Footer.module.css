@@ -1,0 +1,21 @@
+.footer {
+  padding: 60px 0 40px;
+  background: linear-gradient(
+    180deg,
+    var(--color-warm-brown),
+    var(--color-deep-brown)
+  );
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 -5vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.8);
+}
+

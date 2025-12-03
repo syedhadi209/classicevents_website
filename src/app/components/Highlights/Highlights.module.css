@@ -1,0 +1,57 @@
+.highlightsSection {
+  padding: 0 0 60px;
+}
+
+.heroHighlights {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.highlightCard {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  padding: 32px 28px;
+  border: 1px solid rgba(58, 54, 48, 0.1);
+  border-radius: 24px;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(248, 245, 240, 0.75)
+  );
+  box-shadow: 0 8px 24px rgba(58, 54, 48, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlightCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(58, 54, 48, 0.12);
+}
+
+.highlightCard strong {
+  display: block;
+  font-size: 42px;
+  color: var(--color-gold);
+  font-family: var(--font-display), "Playfair Display", serif;
+  margin-bottom: 8px;
+}
+
+.highlightCard p {
+  color: var(--color-warm-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .heroHighlights {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .highlightCard {
+    max-width: 100%;
+  }
+}
+
