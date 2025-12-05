@@ -22,7 +22,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -46,7 +46,7 @@ const wordVariants = {
     rotateX: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -73,14 +73,12 @@ const buttonVariants = {
   },
 };
 
-const floatingVariants = {
-  animate: {
-    y: [0, -10, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+const floatingAnimation = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
   },
 };
 
@@ -130,8 +128,7 @@ export default function Hero() {
     <motion.header
       ref={heroRef}
       className={styles.hero}
-      variants={floatingVariants}
-      animate="animate"
+      animate={floatingAnimation}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -240,10 +237,7 @@ export default function Hero() {
           present for every luminous moment.
         </motion.p>
 
-        <motion.div
-          className={styles.heroActions}
-          variants={itemVariants}
-        >
+        <motion.div className={styles.heroActions} variants={itemVariants}>
           <MagneticButton
             href="#contact"
             className={styles.primaryBtn}
@@ -320,5 +314,3 @@ function MagneticButton({
     </motion.a>
   );
 }
-
-
