@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Header from "../components/Header/Header";
+// import Header from "../components/Header/Header";
+import CustomHeader from "../components/CustomHeader/CustomHeader";
 import Banner from "../components/Banner/Banner";
 import Hero from "../components/Hero/Hero";
 import Highlights from "../components/Highlights/Highlights";
@@ -44,7 +45,8 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <Header />
+      {/* <Header /> */}
+      <CustomHeader />
       <Banner />
 
       <div className={styles.shell}>
