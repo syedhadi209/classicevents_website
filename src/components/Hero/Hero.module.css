@@ -1,12 +1,47 @@
 .hero {
   padding: 80px 0 60px;
   max-width: 800px;
+  position: relative;
+  overflow: visible;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(232, 157, 122, 0.15) 0%,
+    rgba(201, 169, 97, 0.1) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-coral));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(1px);
+  box-shadow: 0 0 10px rgba(232, 157, 122, 0.5);
 }
 
 .heroContent {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
+  z-index: 2;
 }
 
 .eyebrow {
@@ -21,12 +56,30 @@
   font-size: clamp(2.8rem, 4vw, 4rem);
   line-height: 1.1;
   color: var(--color-charcoal);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.heroTitle span {
+  transition: text-shadow 0.3s ease;
+}
+
+.heroTitle:hover span {
+  text-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
 }
 
 .heroSubtitle {
   font-size: 1.1rem;
   color: var(--color-warm-gray);
   max-width: 520px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.heroSubtitle:hover {
+  color: var(--color-charcoal);
 }
 
 .heroActions {
@@ -44,6 +97,9 @@
   text-transform: uppercase;
   border: 1px solid transparent;
   transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .primaryBtn {
@@ -71,6 +127,25 @@
 @media (max-width: 768px) {
   .hero {
     padding-top: 30px;
+    overflow: hidden;
+  }
+
+  .heroGlow {
+    width: 400px;
+    height: 400px;
+    filter: blur(40px);
+  }
+
+  .particle {
+    display: none;
+  }
+
+  .heroTitle {
+    transform: none !important;
+  }
+
+  .heroSubtitle {
+    transform: none !important;
   }
 }
 

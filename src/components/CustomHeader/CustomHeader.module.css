@@ -327,7 +327,7 @@
 @media (max-width: 768px) {
   .nav {
     padding: 20px 24px;
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
   }
 
   .navLinks {
@@ -338,4 +338,3 @@
     display: flex;
   }
 }
-
